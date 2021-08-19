@@ -21,14 +21,14 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var n1=randomNumber()
-        var n2=randomNumber()
+        var n1=(0..100).random()
+        var n2=(0..100).random()
         var score=0
         txtSoal.text="$n1 + $n2"
         btnSubmit.setOnClickListener {
             if(txtJawaban.text.toString().toInt()==(n1+n2)){
-                n1=randomNumber()
-                n2=randomNumber()
+                n1=(0..100).random()
+                n2=(0..100).random()
                 score=score+1
                 txtSoal.text="$n1 + $n2"
                 txtJawaban.setText("")
@@ -38,9 +38,6 @@ class MainFragment : Fragment() {
                 Navigation.findNavController(it).navigate(act)
             }
         }
-    }
-    fun randomNumber():Int{
-        return (0..100).random()
     }
 
 }
